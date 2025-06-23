@@ -55,7 +55,7 @@
         }
 
         getInfo() {
-            console.log(`This Car Id Built In ${this.year}  By ${this.make}`);
+            return (`This Car Is Built In ${this.year}  By ${this.make}`);
         }
     }
 
@@ -67,10 +67,12 @@
             super(make, year)
             this.model = model
         }
+
+        getModel() {
+            return (`The Model Is ${this.model}`)
+        }
     }
 
 
-    const car = new Vehicle('toyota', 2020)
-    car.getInfo()
 
 }
