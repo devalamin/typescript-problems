@@ -9,7 +9,6 @@
 
     }
 
-    // console.log(formatString('hello',true));
 
 
 
@@ -19,14 +18,7 @@
 
     }
 
-    // const books = [
-    //     { title: "Book A", rating: 4.5 },
-    //     { title: "Book B", rating: 3.2 },
-    //     { title: "Book C", rating: 5.0 },
-    //     { title: "Book C", rating: 2.0 }
-    // ];
 
-    // console.log(filterByRating(books));
 
 
     function concatenateArrays<T>(...arrays: T[][]): T[] {
@@ -42,37 +34,106 @@
 
 
 
-    // console.log(concatenateArrays([1, 2], [3, 4], [5]));
+
 
 
     class Vehicle {
-        private make: string;
+        private _make: string;
         public year: number
 
         constructor(make: string, year: number) {
-            this.make = make,
+            this._make = make,
                 this.year = year
         }
 
         getInfo() {
-            return (`This Car Is Built In ${this.year}  By ${this.make}`);
+            return (`This Car Is Built In ${this.year}  By ${this._make}`);
         }
     }
 
 
     class Car extends Vehicle {
-        private model: string;
+        private _model: string;
 
         constructor(make: string, year: number, model: string) {
             super(make, year)
-            this.model = model
+            this._model = model
         }
 
         getModel() {
-            return (`The Model Is ${this.model}`)
+            return (`The Model Is ${this._model}`)
         }
     }
 
 
+
+    function processValue(value: string | number): number {
+        return typeof value === 'string' ? value.length : value * 2
+
+    }
+
+
+
+
+    interface Product {
+        name: string;
+        price: number
+    }
+
+    function getMostExpensiveProduct(products: Product[]): Product | null {
+
+        if (products.length === 0) {
+            return null
+        }
+
+        const highestValue = products.reduce((max, current) => {
+            return max.price > current.price ? max : current
+        }, products[0])
+
+        return highestValue
+
+    }
+
+    enum Day {
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
+    }
+
+    function getDayType(day: Day): string {
+        if (day === Day.Saturday || day === Day.Sunday) {
+            return 'Weekend'
+        }
+        else {
+            return 'WeekDay'
+        }
+
+    }
+    // console.log(getDayType(Day.Saturday));
+
+
+
+
+
+    async function squareAsync(n: number): Promise<number> {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (n < 0) {
+                    reject(new Error(`Negative number not allowed`))
+                } else {
+                    resolve(n * n)
+                }
+            }, 1000);
+        })
+    }
+
+
+    squareAsync(-8)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
 
 }
