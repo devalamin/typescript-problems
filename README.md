@@ -31,4 +31,4 @@ Other benefits of TypeScript:
 - ✅ TypeScript improves code scalability, which means we can use TypeScript in our larger projects.
 - ✅ It’s easier for team collaboration in larger projects.
 
->>>>>>> d653d1b8e53465c61f6fb2f1dd2edf1c116c0859
+
